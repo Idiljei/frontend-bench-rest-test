@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as ReactBootstrap from "react-bootstrap";
+import moment from "moment";
+
 
 
 const TableData = () => {
@@ -54,7 +56,7 @@ const TableData = () => {
           {transactionHistory.map((data, i) => {
             return (
               <tr key={i} class="table-row">
-                <td>{data.Date}</td>
+                <td>{data.Date ? moment(data.Date).format("MMM Do, YYYY") : ""} </td>
                 <td>{data.Company}</td>
                 <td>{data.Ledger}</td>
                 <td>{data.Amount}</td>
