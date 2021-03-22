@@ -28,6 +28,14 @@ const TableData = () => {
     getTransaction();
   }, [page]);
 
+  // Navigate between pages 
+  const NextPage = () => {
+    setPage(page + 1);
+  };
+  const PreviousPage = () => {
+    setPage(page - 1);
+  };
+
   return (
     <div>
       {isLoading && <p> Please wait.. Loading list of transactions</p>}
@@ -57,7 +65,14 @@ const TableData = () => {
         </tbody>
 
       </ReactBootstrap.Table >
+      {transactionHistory.length !== 0 && (
+        <button class="buttons" onClick={PreviousPage}>Previous</button>
+      )}
 
+      {transactionHistory.length !== 0 && (
+        <button class="buttons" onClick={NextPage}>Next</button>
+
+      )}
     </div>
   );
 };
