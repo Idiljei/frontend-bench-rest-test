@@ -1,0 +1,14 @@
+.Header {
+  display: flex;
+  background-color: #098b8c;
+  justify-content: center;
+  color: white;
+  height: 50px;
+  font-size: 15px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  font-family: LLCircularWeb, Helvetica Neue, Helvetica, Arial, Lucida Grande,
+    sans-serif;
+}
+
