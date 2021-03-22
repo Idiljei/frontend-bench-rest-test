@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import * as ReactBootstrap from "react-bootstrap";
 import moment from "moment";
-
-
+import '../Styling/table.css';
+import { toTitleCase, numberWithCommas } from "../helpers";
 
 const TableData = () => {
   const [page, setPage] = useState(1);
@@ -57,9 +57,9 @@ const TableData = () => {
             return (
               <tr key={i} class="table-row">
                 <td>{data.Date ? moment(data.Date).format("MMM Do, YYYY") : ""} </td>
-                <td>{data.Company}</td>
-                <td>{data.Ledger}</td>
-                <td>{data.Amount}</td>
+                <td>{toTitleCase(data.Company)}</td>
+                <td>{data.Ledger === '' ? 'Payment' : data.Ledger}</td>
+                <td>${numberWithCommas(data.Amount)}</td>
               </tr>
             );
           })}
