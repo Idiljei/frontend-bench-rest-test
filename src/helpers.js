@@ -8,20 +8,13 @@ const toTitleCase = (str) => {
   );
 };
 
-//  https://stackoverflow.com/questions/2901102/how-to-print-a-number-with-commas-as-thousands-separators-in-javascript
-const numberWithCommas = (x) => {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-};
+// https://stackoverflow.com/questions/2901102/how-to-print-a-number-with-commas-as-thousands-separators-in-javascript
 
-  // https://stackoverflow.com/questions/23247859/better-way-to-sum-a-property-value-in-an-array  // const sumTotal = () => {
-  //   let total = 0; 
-  //   for (var i = 0; i < transactionHistory.length; i++) {
-  //              total = total + transactionHistory[i].Amount;
-  //            }
-  //       return total;
-  // }
+var formatNumber = (num) => {
+  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+}
 
 module.exports = {
   toTitleCase,
-  numberWithCommas,
+  formatNumber,
 }
