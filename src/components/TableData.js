@@ -23,7 +23,7 @@ const TableData = () => {
       // const amount = jsonData.transactions;
       // setTotalSum(amount) 
       transactions.map(item => item.Amount).reduce((prev, next) => total.push(prev + next));
-      
+
       if (response.status === 200) {
         settransactionHistory(transactions);
       } else {
@@ -44,8 +44,6 @@ const TableData = () => {
   const PreviousPage = () => {
     setPage(page - 1);
   };
-
-
 
   return (
     <div>
