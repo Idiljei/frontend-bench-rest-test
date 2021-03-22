@@ -1,18 +1,34 @@
-.buttons{
+.table-header {
+  font-family: LLCircularWeb, Helvetica Neue, Helvetica, Arial, Lucida Grande,
+    sans-serif;
+  color: #098b8c;
+}
+
+.table {
+  background-color: white;
+}
+
+.table-row :hover {
+  font-family: LLCircularWeb, Helvetica Neue, Helvetica, Arial, Lucida Grande,
+    sans-serif;
+  cursor: pointer;
+  color: #098b8c;
+}
+
+.buttons {
   background: white;
   border: 1px solid #098b8c;
   border-radius: 4px;
   box-sizing: border-box;
-  color:black;
+  color: black;
   cursor: pointer;
   display: inline-block;
-  font-family: LLCircularWeb,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;;
+  font-family: LLCircularWeb, Helvetica Neue, Helvetica, Arial, Lucida Grande,
+    sans-serif;
   font-size: 1rem;
-  line-height: 1.5rem;
+  line-height: 1rem;
   margin: 0.25rem 0px;
   padding: 0.75rem 1rem;
   text-align: center;
   text-decoration: none;
-  
-
 }
