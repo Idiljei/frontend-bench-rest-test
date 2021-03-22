@@ -1,14 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
-import Header from '../src/Header';
+import Header from './components/Header';
+import TableData from './components/TableData'
 
 
 function App() {
   return (
     <div className="App">
-      <header className="App-background">
         <Header></Header>
-      </header>
+      <body className="App-background">
+      </body>
+        <TableData></TableData>
     </div>
   );
 }
