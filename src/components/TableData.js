@@ -64,8 +64,7 @@ const TableData = () => {
                 <td>{data.Date ? moment(data.Date).format("MMM Do, YYYY") : ""} </td>
                 <td>{toTitleCase(data.Company)}</td>
                 <td>{data.Ledger === '' ? 'Payment' : data.Ledger}</td>
-                {/* {amount ? <td>"-${formatNumber(Math.abs(data.Amount).toFixed(2))}" </td> : */}
-                  <td>${formatNumber(Math.abs(data.Amount).toFixed(2))}</td>
+                  <td>{data.Amount < 0 ? formatNumber(`-$${Math.abs(data.Amount).toFixed(2)}`) : formatNumber(`$${Math.abs(data.Amount).toFixed(2)}`)}</td>
               </tr>
             );
           })}
