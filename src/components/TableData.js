@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import * as ReactBootstrap from "react-bootstrap";
 import moment from "moment";
 import '../Styling/table.css';
-import { toTitleCase, numberWithCommas } from "../helpers";
+import { toTitleCase, formatNumber } from "../helpers";
 
 const TableData = () => {
   const [page, setPage] = useState(1);
   const [error, setError] = useState(null);
   const [transactionHistory, settransactionHistory] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState([true]);
+  // const [amount, setAmount] =([])
 
 
   const getTransaction = async () => {
@@ -16,6 +17,8 @@ const TableData = () => {
       const response = await fetch(`https://resttest.bench.co/transactions/${page}.json`);
       const jsonData = await response.json();
       setIsLoading(false);
+      // setAmount(jsonData.transactions.Amount);
+
       if (response.status === 200) {
         settransactionHistory(jsonData.transactions);
       } else {
@@ -38,6 +41,7 @@ const TableData = () => {
     setPage(page - 1);
   };
 
+
   return (
     <div>
       {isLoading && <p> Please wait.. Loading list of transactions</p>}
@@ -52,6 +56,7 @@ const TableData = () => {
             <th>Amount</th>
           </tr>
         </thead>
+
         <tbody>
           {transactionHistory.map((data, i) => {
             return (
@@ -59,11 +64,11 @@ const TableData = () => {
                 <td>{data.Date ? moment(data.Date).format("MMM Do, YYYY") : ""} </td>
                 <td>{toTitleCase(data.Company)}</td>
                 <td>{data.Ledger === '' ? 'Payment' : data.Ledger}</td>
-                <td>${numberWithCommas(data.Amount)}</td>
+                {/* {amount ? <td>"-${formatNumber(Math.abs(data.Amount).toFixed(2))}" </td> : */}
+                  <td>${formatNumber(Math.abs(data.Amount).toFixed(2))}</td>
               </tr>
             );
           })}
-
         </tbody>
 
       </ReactBootstrap.Table >
